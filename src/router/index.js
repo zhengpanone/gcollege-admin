@@ -159,7 +159,34 @@ export const constantRoutes = [
       }
     ]
   },
+  {
+    path: '/teacher',
+    component: Layout, // 命名路由视图组件
+    redirect: '/teacher/list',
+    name: 'Teacher', // 命名路由
+    meta: { title: '讲师管理', icon: 'nested' },
+    children: [// 嵌套路由
+      {
+        path: 'list',
+        name: 'TeacherList',
+        component: () => import('@/views/teacher/list'),
+        meta: { title: '讲师列表' }
+      },
+      {
+        path: 'create',
+        name: 'TeacherCreate',
+        component: () => import('@/views/teacher/save'),
+        meta: { title: '讲师管理' }
+      }, {
+        path: 'edit/:id',
+        name: 'TeacherEdit',
+        component: () => import('@/views/teacher/save'),
+        meta: { title: '编辑讲师', noCache: true },
+        hidden: true
+      }
+    ]
 
+  },
   // 404 page must be placed at the end !!!
   { path: '*', redirect: '/404', hidden: true }
 ]
