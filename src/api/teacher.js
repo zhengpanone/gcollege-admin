@@ -1,13 +1,13 @@
 import request from '@/utils/request'
 
 export default {
-// 讲师列表(条件分页查询)
+  // 讲师列表(条件分页查询)
   getTeacherListPage(current, limit, teacherQuery) {
     return request({
       baseURL: 'http://localhost:8091/gcollege-dev',
       url: `/admin/edu/teacher/list/${current}/${limit}`,
       method: 'get',
-      data: teacherQuery
+      params: teacherQuery
     })
   },
   deleteTeacher(id) {
@@ -17,17 +17,17 @@ export default {
       method: 'delete'
     })
   }
-
 }
-export const addTeacher = (teacher) => {
+// 保存Teacher
+export const save = (teacher) => {
   return request({
     baseURL: 'http://localhost:8091/gcollege-dev',
-    url: `/admin/edu/teacher/addTeacher`,
+    url: `/admin/edu/teacher/save`,
     method: 'post',
     data: teacher
   })
 }
-
+// 根据ID查找Teacher
 export const getTeacherById = (id) => {
   return request({
     baseURL: 'http://localhost:8091/gcollege-dev',
@@ -35,7 +35,7 @@ export const getTeacherById = (id) => {
     method: 'get'
   })
 }
-
+// 根据ID修改Teacher
 export const updateTeacherById = (teacher) => {
   return request({
     baseURL: 'http://localhost:8091/gcollege-dev',

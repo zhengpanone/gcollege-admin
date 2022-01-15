@@ -148,17 +148,6 @@ export const constantRoutes = [
       }
     ]
   },
-
-  {
-    path: 'external-link',
-    component: Layout,
-    children: [
-      {
-        path: 'https://panjiachen.github.io/vue-element-admin-site/#/',
-        meta: { title: 'External Link', icon: 'link' }
-      }
-    ]
-  },
   {
     path: '/teacher',
     component: Layout, // 命名路由视图组件
@@ -176,7 +165,7 @@ export const constantRoutes = [
         path: 'create',
         name: 'TeacherCreate',
         component: () => import('@/views/teacher/save'),
-        meta: { title: '讲师管理' }
+        meta: { title: '添加讲师' }
       }, {
         path: 'edit/:id',
         name: 'TeacherEdit',
